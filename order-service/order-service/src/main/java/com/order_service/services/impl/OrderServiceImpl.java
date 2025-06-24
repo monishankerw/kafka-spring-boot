@@ -1,5 +1,6 @@
 package com.order_service.services.impl;
 
+import com.aop_service.annotations.LogExecutionTime;
 import com.base_service.dto.OrderDTO;
 import com.base_service.dto.OrderEvent;
 import com.order_service.kafka.OrderProducer;
@@ -17,6 +18,7 @@ public class OrderServiceImpl implements OrderService {
 
     private final OrderProducer orderProducer;
     @Override
+    @LogExecutionTime
     public void OrderDetails(OrderDTO orderDTO) {
         orderDTO.setOrderId(UUID.randomUUID().toString());
         OrderEvent orderEvent = new OrderEvent();

@@ -1,5 +1,6 @@
 package com.order_service.kafka;
 
+import com.aop_service.annotations.LogExecutionTime;
 import com.base_service.dto.OrderEvent;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,8 +19,9 @@ public class OrderProducer {
     private final KafkaTemplate<String, OrderEvent> kafkaTemplate;
     private final NewTopic topic;
 
+    @LogExecutionTime
     public void sendMessage(OrderEvent orderEvent) {
-        log.info("Sending OrderEvent -> {}", orderEvent);
+//        log.info("Sending OrderEvent -> {}", orderEvent);
 
         Message<OrderEvent> message = MessageBuilder
                 .withPayload(orderEvent)

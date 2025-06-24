@@ -30,6 +30,6 @@ public class OrderConsumer {
         log.info("📦 Received OrderEvent in stock-service: {}", orderEvent);
         emailService.sendEmail(orderEvent);
     }
- 
+
 
 }

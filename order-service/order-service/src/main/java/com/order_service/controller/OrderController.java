@@ -1,5 +1,6 @@
 package com.order_service.controller;
 
+import com.aop_service.annotations.LogExecutionTime;
 import com.base_service.dto.OrderDTO;
 import com.base_service.dto.OrderEvent;
 import com.order_service.services.OrderService;
@@ -15,6 +16,7 @@ public class OrderController {
     private final OrderService orderService;
 
     @PostMapping("/order")
+    @LogExecutionTime
     public ResponseEntity<String> publishOrder(@RequestBody OrderDTO orderDTO) {
         orderService.OrderDetails(orderDTO);
         return ResponseEntity.ok("Order placed successfully!");

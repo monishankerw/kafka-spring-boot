@@ -7,8 +7,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="base-service" />
+        <module name="api-gateway" />
+        <module name="Eureka-Server" />
         <module name="order-service" />
+        <module name="aop-services" />
+        <module name="base-service" />
         <module name="email-service" />
       </profile>
       <profile name="Annotation profile for stock-service" enabled="true">
@@ -21,9 +24,17 @@
         <module name="stock-service" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="aop-service" target="17" />
+      <module name="api-gateway-service" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Eureka-Server" options="-parameters" />
+      <module name="aop-service" options="-parameters" />
+      <module name="aop-services" options="-parameters" />
+      <module name="api-gateway" options="-parameters" />
       <module name="base-service" options="-parameters" />
       <module name="email-service" options="-parameters" />
       <module name="order-service" options="-parameters" />

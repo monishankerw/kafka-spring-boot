@@ -1,5 +1,6 @@
 package com.email_service.service.impl;
 
+import com.aop_service.annotations.LogExecutionTime;
 import com.base_service.dto.OrderDTO;
 import com.base_service.dto.OrderEvent;
 import com.email_service.service.EmailService;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 public class EmailServiceImpl implements EmailService {
 
     @Override
+    @LogExecutionTime
     public void sendEmail(OrderEvent orderEvent) {
         OrderDTO order = orderEvent.getOrder();
         String to = order.getCustomerId() + "@example.com"; // or from a customer profile table
